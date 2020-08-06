@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <main class="page contact-us-page">
+        <section class="clean-block clean-form dark" style=" min-height: 78vh;">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Registro obra</h2>
+                    <p></p>
+                </div> 
+                <form (submit)="agregar($event)">
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group"><label>Nombre del artista:</label>
+                                <input [(ngModel)]="obra.NOMBRE_ARTISTA" name="NOMBRE_ARTISTA" 
+                                class="form-control" type="text" required>
+                            </div>
+                            <div class="form-group"><label>Nombre de la obra:</label>
+                                <input [(ngModel)]="obra.NOMBRE_DE_OBRA" name="NOMBRE_DE_OBRA" 
+                                class="form-control" type="text" required></div>
+                            <div class="form-group"><label>Largo:</label>
+                                <input [(ngModel)]="obra.LARGO" name="LARGO" type="number" 
+                                class="form-control" inputmode="numeric" required>
+                            </div>
+                            <div class="form-group"><label>Ancho:</label>
+                                <input [(ngModel)]="obra.ANCHO" name="ANCHO" type="number"
+                                class="form-control" inputmode="numeric" required>
+                            </div>
+                            <div class="form-group"><label>Año:</label>
+                                <input [(ngModel)]="obra.YEAR" name="YEAR" type="number"
+                                class="form-control" inputmode="numeric" required></div>
+                        </div>
+                        <div class="col">
+                            <label>Fecha Inicio:</label>
+                            <div class="form-group">
+                                <input [(ngModel)]="obra.FECHA_INICIO" style="font-size: 10;" name="FECHA_INICIO" type="date"
+                                class="form-control-select" required>
+                            </div>
+                            <label>Fecha Fin:</label>
+                            <div class="form-group">
+                                <input [(ngModel)]="obra.FECHA_FIN" name="FECHA_FIN" type="date"
+                                class="form-control-select" required>
+                            </div>
+                            <label>Tipo de colección:</label> 
+                            <div class="form-group">
+                                <select class="form-control-select" type="number" [(ngModel)]="obra.TIPO_COLECCION"
+                                    name="tipoColeccion">
+                                    <option value="" disabled selected hidden></option>
+                                    <option *ngFor="let coleccion of tipoColeccion" [ngValue]="coleccion.DESCRIPCION">
+                                        {{coleccion.DESCRIPCION}}</option>
+                                </select>
+                            </div>
+                            <label>Tipo técnica:</label>
+                            <div class="form-group">
+                                <select class="form-control-select" type="number" [(ngModel)]="obra.TIPO_DE_TECNICA" name="tipoTecnica">
+                                    <option value="" disabled selected hidden></option>
+                                    <option *ngFor="let tecnica of tipoTecnica" [ngValue]="tecnica.DESCRIPCION">
+                                        {{tecnica.DESCRIPCION}}</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col ml-auto">
+                            <input class="form-control" type="file" name="image" accept="image/*"
+                                (change)='changeImage($event)' />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn RedButton" type="submit">Agregar</button>
+                    </div>
+                    <!--- <div *ngIf="!agregado" class="alert alert-danger" role="alert">
+                        Obra no agregada.
+                    </div>
+                    <div *ngIf="agregado" class="alert alert-success" role="alert">
+                        Problema ingresado exitosamente.
+                    </div>-->
+                    <!---<div class="row">
+                        <div class="col form-group"><label>Nueva colección:</label>
+                            <input class="form-control" [(ngModel)]="coleccion.DESCRIPCION" name="COLECCION"
+                                inputmode="text" (keydown.enter)="agregarColeccion($event)">
+                        </div>
+                        <div class="col form-group"><label>Nueva técnica:</label>
+                            <input class="form-control" [(ngModel)]="tecnica.DESCRIPCION" name="TIPO_TECNICA" 
+                                type="text" (keydown.enter)="agregarTecnica($event)">
+                        </div>
+                    </div>-->
+                </form>
+            </div>            
+        </section>
+    </main>
+</body>
+
+</html>

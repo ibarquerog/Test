@@ -1,0 +1,42 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<a  routerLink="/newProblem" class="btn BlueButton" style="margin-top:10px;margin-bottom:15px;">Agregar nuevo problema</a>
+
+<p *ngIf="!problems"><em>Cargando problemas...</em></p>
+
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Visualizar</th>
+            <th>Última vez utilizado</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="problems?.length != 0">
+        <tr *ngFor= "let p of problems">  
+            <td>{{p.NOMBRE}}</td>
+            <td><button (click)="verProblema(p)" class='btn btn-outline-primary btn-sm'>Editar</button>
+                <button type="button" class="btn btn-outline-danger btn-sm" (click)="openModalDialog(p.ID_PROBLEMA)">Eliminar</button>
+                    <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+                        <div class="popup" [ngStyle]="{'display':display}">
+                            <p>¿Está seguro de que desea eliminar el problema?</p>
+                            <button type="button" class="close" (click)="onClosehandled"><span aria-hidden="true"></span></button>
+                            <button type="button" class="btn_si" (click) ="eliminarProblema()" (click)="closeModalDialog()">Si</button>
+                            <button type="button" class="btn_no" (click)="closeModalDialog()">No</button>
+                        </div>
+                    </div>
+            </td> 
+            <td>{{p.FECHA_LIBERACION_PROBLEMA}}</td>
+        </tr>
+    </tbody>
+    <tbody *ngIf="problems?.length == 0">
+        <tr>
+            <td>No data!</td>
+            <td>No data!</td>
+            <td>No data!</td>
+        </tr>
+    </tbody>
+</table>
+

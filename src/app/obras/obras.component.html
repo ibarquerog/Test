@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <main class="page service-page">
+        <section class="clean-block clean-services dark" style=" min-height: 78vh;">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Administrador de obras de arte</h2>
+                </div>
+                <button type="button" class="BlueButton" (click)="newObra()">Agregar nueva obra</button>
+
+                <div *ngIf=!obras style="display: block;margin-left: auto;margin-right: auto;" class="loader"></div>
+                
+                <div class="row">
+                    <div style="padding-bottom: 5px;" class="col-md-6 col-lg-4" *ngFor="let obra of obras">
+                        <div class="card">
+                            <img class="card-img-top w-100 d-block card-image" src="{{obra.IMG_SOURCE}}">
+                            <div class="card-body">
+                                <h4 class="card-title">{{obra.NOMBRE_DE_OBRA}}</h4>
+                                <p class="card-text">{{obra.NOMBRE_ARTISTA}} &nbsp;* 
+                                    {{obra.LARGO}} cm x {{obra.ANCHO}} cm * {{obra.YEAR}} *<br>
+                                </p> 
+                            </div>
+                            <div>
+                                <button class="btn btn-outline-primary btn-sm" type="button" (click)="editObra(obra)">Editar</button>
+                                <button type="button" class="btn btn-outline-danger btn-sm" (click)="openModalDialog(obra.ID_OBRA_DE_ARTE)">Eliminar</button>
+                                <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+                                    <div class="popup" [ngStyle]="{'display':display}">
+                                        <p>¿Está seguro de que desea eliminar la obra seleccionada?</p>
+                                        <button type="button" class="close" (click)="closeModalDialog()"><span aria-hidden="true"></span></button>
+                                        <button type="button" class="btn_si" (click) ="eliminarObra()" (click)="closeModalDialog()">Si</button>
+                                        <button type="button" class="btn_no" (click)="closeModalDialog()">No</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>

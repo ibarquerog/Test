@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body> 
+    <main class="page shopping-cart-page">
+        <section class="clean-block clean-cart dark" style="margin-top:8px;margin-bottom:31px; min-height: 78vh;">
+            <div class="container">
+                <h2 class="text-info">Lista de administradores</h2>
+                <a routerLink="/newAdministrador" class="btn BlueButton" style="margin-top:8px;">Agregar nuevo administrador</a>
+                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="administradores?.length != 0">
+                        <tr *ngFor= "let administrador of administradores">
+                            <td>{{administrador.NOMBRE}}</td>
+                            <td>{{administrador.CORREO}}</td>
+                            <td>
+                                <button class="btn btn-outline-primary btn-sm" type="button" (click)="editAdmin(administrador)">Editar</button>
+                                    <button type="button" class="btn btn-outline-danger btn-sm" (click)="openModalDialog(administrador.CORREO)">Eliminar</button>
+                                        <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+                                            <div class="popup" [ngStyle]="{'display':display}">
+                                                <p>¿Está seguro de que desea eliminar el usuario sleccionado?</p>
+                                                <button type="button" class="close" (click)="onClosehandled"><span aria-hidden="true"></span></button>
+                                                <button type="button" class="btn_si" (click) ="eliminarAdmin()" (click)="closeModalDialog()">Si</button>
+                                                <button type="button" class="btn_no" (click)="closeModalDialog()">No</button>
+                                            </div>
+                                        </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody *ngIf="administradores?.length == 0">
+                        <tr>
+                            <td>No data!</td>
+                            <td>No data!</td>
+                            <td>No data!</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

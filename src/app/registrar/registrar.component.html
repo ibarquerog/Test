@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <main class="page pricing-table-page">
+        <section class="clean-block clean-pricing dark" style="min-height: 78vh;">
+            <section class="clean-block clean-form dark">
+                <div class="container">
+                    <div class="block-heading" >
+                    </div>
+                    <form class=box (submit) = "registrar($event)">
+                            <h2 class="text-info">Registro</h2>
+                            <input placeholder="Nombre"  [(ngModel)]="client.NOMBRE" name="NOMBRE" class="form-control" type="text">
+
+                            <input placeholder="Correo electrónico"  [(ngModel)]="client.CORREO" name="CORREO" class="form-control" type="text">
+
+                        <div *ngIf="!correoValid" class="alert alert-danger" role="alert">
+                            La dirección de correo no es válida.
+                        </div>
+  
+                            <input placeholder="Contraseña" [(ngModel)]="client.PASSWORD" name="PASSWORD" class="form-control" type="password">
+       
+                        
+                            <input placeholder="Confirmar contraseña" [(ngModel)]="repeatedPassword" name="repeatedPassword" class="form-control" type="password">
+                       
+                        <div *ngIf="!iguales" class="alert alert-danger" role="alert">
+                                Las contraseñas son distintas. 
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="" value="Registrar">
+                        </div>
+                        <div *ngIf="!valid" class="alert alert-danger" role="alert">
+                               Los datos ingresados son incorrectos.
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </section>
+    </main>
+</body>
+
+</html>

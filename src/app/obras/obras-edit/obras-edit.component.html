@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <main class="page contact-us-page">
+        <section class="clean-block clean-form dark" style=" min-height: 78vh;">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Editar obra</h2>
+                </div>
+                <form *ngIf="obra" (submit)="editar($event)">
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group"><label>Nombre artista:</label>
+                                <input [(ngModel)]="obra.NOMBRE_ARTISTA" name="NOMBRE_ARTISTA" 
+                                class="form-control" type="text" placeholder="{{obra.NOMBRE_ARTISTA}}">
+                            </div>
+                            <div class="form-group"><label>Nombre de obra:</label>
+                                <input [(ngModel)]="obra.NOMBRE_DE_OBRA" name="NOMBRE_DE_OBRA" 
+                                class="form-control" type="text" placeholder="{{obra.NOMBRE_DE_OBRA}}">
+                            </div>
+                            <div class="form-group"><label>Largo:</label>
+                                <input [(ngModel)]="obra.LARGO" name="LARGO" 
+                                class="form-control" type="number" placeholder="{{obra.LARGO}}" inputmode="numeric">
+                            </div>
+                            <div class="form-group"><label>Ancho:</label>
+                                <input [(ngModel)]="obra.ANCHO" name="ANCHO" 
+                                class="form-control" type="number" placeholder="{{obra.ANCHO}}" inputmode="numeric">
+                            </div>
+                            <div class="form-group"><label>Año:</label>
+                                <input [(ngModel)]="obra.YEAR" name="YEAR" 
+                                class="form-control" type="number" placeholder="{{obra.YEAR}}" inputmode="numeric">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group"><label>Fecha Inicio:</label>
+                                <input [(ngModel)]="obra.FECHA_INICIO" name="FECHA_INICIO.substring(0,10)" 
+                                class="form-control" type="date">
+                            </div> 
+                            <div class="form-group"><label>Fecha Fin:</label>
+                                <input [(ngModel)]="obra.FECHA_FIN" name="FECHA_FIN" 
+                                class="form-control" type="date">
+                            </div>
+                            <div class="form-group"><label>Tipo de colección:</label>
+                                <select class="form-control-select" [(ngModel)]="obra.TIPO_COLECCION"
+                                [ngModelOptions]="{standalone: true}" name="TIPO_COLECCION">
+                                    <option *ngFor="let coleccion of tiposColecciones" [value]="coleccion.DESCRIPCION">
+                                        {{coleccion.DESCRIPCION}}</option>
+                                </select>
+                            </div>  
+                            <div class="form-group"><label>Tipo técnica:</label>
+                                <select class="form-control-select" [(ngModel)]="obra.TIPO_DE_TECNICA" 
+                                [ngModelOptions]="{standalone: true}" name="TIPO_DE_TECNICA">
+                                    <option *ngFor="let tecnica of tiposTecnicas" [value]="tecnica.DESCRIPCION">
+                                        {{tecnica.DESCRIPCION}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col ml-auto">
+                            <input class="form-control" type="file" accept="image/*"
+                                (change)='changeImage($event)' />
+                        </div>
+                    </div>
+                    <div class="form-group"><button class="btn RedButton" type="submit">Guardar cambios</button>
+                    </div>
+                    <div *ngIf="error" class="alert alert-danger" role="alert">
+                        Obra no editada.
+                    </div>
+                    <div *ngIf="editada" class="alert alert-success" role="alert">
+                        Obra editada exitosamente.
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>

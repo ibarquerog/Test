@@ -1,0 +1,52 @@
+.popup {
+    margin: 70px auto; 
+    padding: 20px;
+    background: #f2f2f2;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    margin: 0 auto;
+    top: 25%;
+    transition: all 5s ease-in-out;
+  }
+  
+  .popup p {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+  }
+
+  .popupAnotacion {
+    margin: 70px auto;
+    padding: 20px;
+    background: #f2f2f2;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: black;
+    width: 40%; 
+    position: relative;
+    margin: 0 auto;
+    top: 25%;
+    transition: all 5s ease-in-out;
+  }
+  
+  .popupAnotacion p {
+    border-width: 2px;
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+  }
+  textarea {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.buttonIcon{
+  border:0px;
+  background-color:transparent;
+  font-size:16px;
+  cursor:pointer;
+}
+

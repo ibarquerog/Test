@@ -1,0 +1,17 @@
+<nav style="background: #140e39;color: white;" class="navbar navbar-light navbar-expand-md navigation-clean-search">
+    <div class="container"> 
+          <a class="navbar-brand logo" routerLink='/user' routerLinkActive="active"><img src="../../assets/img/logoTECBLANCO.png" alt="TEC" style="height: 50px;"></a>
+      <button (click)="collapse()" class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><i
+          class="fas fa-bars fa-1x"></i></button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="nav navbar-nav" style="color: white;">
+                <li class="nav-item" role="presentation"><a (click)="decollapse()" class="nav-link" routerLink="/filtro" routerLinkActive="active"><i class="fas fa-search"></i> Problemas</a></li>
+                <li class="nav-item" role="presentation"><a (click)="decollapse()" class="nav-link" routerLink="/calendario" routerLinkActive="active"><i class="fab fa-searchengin"></i> Filtro por fecha</a></li>
+                <li class="nav-item" role="presentation"><a (click)="decollapse()" class="nav-link" routerLink="/enviarSugerencia" routerLinkActive="active"><i class="fa fa-pencil-square"></i> Sugerencias</a></li>
+                <li class="nav-item" role="presentation"><a (click)="decollapse()" class="nav-link" (click)="logOut()" style="cursor: pointer;"><i class="fas fa-sign-out-alt"></i> Salir</a></li>
+            </ul>
+        </div>
+    </div>
+  </nav> 
+
+             

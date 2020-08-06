@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>Filtrar problemas</h2>
+    <p>En esta sección puede buscar problemas anteriormente liberados</p>
+
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Fecha</th>
+                <th>Ver problema</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="problemas?.length != 0">
+            <tr *ngFor= "let p of problemas"> 
+                <td style="cursor: pointer;">{{p.NOMBRE}}</td>
+                <td>{{p.TIPO_PROBLEMA}}</td>
+                <td>{{p.FECHA_LIBERACION_PROBLEMA}}</td>
+                <td><button (click)="verProblema(p)" class='btn btn-outline-primary btn-sm'>Ver</button></td>
+            </tr>
+        </tbody>
+        <tbody *ngIf="problemas?.length == 0">
+            <tr>
+                <td>No hay datos que mostrar</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

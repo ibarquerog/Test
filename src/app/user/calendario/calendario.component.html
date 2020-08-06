@@ -1,0 +1,49 @@
+<div class="container">
+  <h2>Búsqueda por fechas</h2>
+  <p>En esta sección puede buscar problemas anteriormente liberados en un rango de fechas válido</p>
+  <form [formGroup]="form" (ngSubmit)=" form.valid && filtrarProblemas()">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-lg-6 shadow p-3 mb-5 bg-white rounded">
+            <label for="initialDate">Fecha inicial:</label>
+            <input name="initialDate" type="date" class="form-control rounded" formControlName="initialDateValue"
+              [ngClass]="{'is-invalid':
+        form.get('initialDateValue').touched && form.get('initialDateValue').invalid}"
+              (change)="setMinDate()" />
+          </div>
+          <div class="col-xs-12 col-sm-12 col-lg-6 shadow p-3 mb-5 bg-white rounded">
+            <label for="finalDate">Fecha final:</label>
+            <input name="finalDate" type="date" min="{{minDate}}" class="form-control rounded"
+              formControlName="finalDateValue" [ngClass]="{'is-invalid':
+        form.get('finalDateValue').touched && form.get('finalDateValue').invalid}" />
+          </div>
+        </div>
+      </div> 
+      <button class="BlueButton" [disabled]="!form.valid" type="submit">
+        Buscar
+      </button>
+    </form>
+
+  <h4 style="margin-top: 10px;" *ngIf="problemasFiltered">Resultados obtenidos:</h4>
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+      <thead>
+          <tr>
+              <th>Nombre</th>
+              <th>Categoría</th>
+              <th>Fecha</th>
+          </tr>
+      </thead>
+      <tbody *ngIf="problemasFiltered?.length != 0">
+          <tr *ngFor= "let p of problemasFiltered"> 
+              <td>{{p.NOMBRE}}</td>
+              <td>{{p.TIPO_PROBLEMA}}</td>
+              <td>{{p.FECHA_LIBERACION_PROBLEMA}}</td>
+          </tr>
+      </tbody>
+      <tbody *ngIf="problemasFiltered?.length == 0">
+          <tr>
+              <td>No se encontraron resultados</td>
+          </tr>
+      </tbody>
+    </table>
+</div>

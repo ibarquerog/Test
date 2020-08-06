@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Timeline</title>
+</head>
+
+<body>
+	<div class="container"  style=" min-height: 78vh;">
+		<h2>Búsqueda de soluciones</h2>
+		<p>En esta sección puede buscar las soluciones de problemas anteriormente liberados</p>
+		<div class="row" style="justify-content: center;">
+			<div class="timeline-centered">
+
+				<article class="timeline-entry" *ngFor="let p of problemas">
+
+					<div class="timeline-entry-inner">
+						<time class="timeline-time"
+							datetime="2014-01-10T03:45"><span>{{p.FECHA_LIBERACION_PROBLEMA}}</span>
+							<span>{{p.FECHA_LIBERACION_SOLUCION}}</span></time>
+
+						<div class="timeline-icon bg-success">
+							<i class="entypo-feather"></i>
+						</div>
+
+						<div class="timeline-label" style="width: 100%; border-radius: 15px;
+			background-color: darkgray;"+>
+							<h2><a [routerLink]="['/verProblemaUser/',p.NOMBRE]"> {{p.NOMBRE}} </a></h2>
+							<h2><span>{{p.TIPO_PROBLEMA}}</span></h2>
+						</div>
+					</div>
+
+
+				</article>
+
+
+			</div>
+		</div>
+	</div>
+	<script src="../../../assets/js/jquery.min.js"></script>
+	<script src="../../../assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

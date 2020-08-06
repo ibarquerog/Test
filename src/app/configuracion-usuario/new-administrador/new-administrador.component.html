@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Brand</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+</head>
+
+<body>
+
+    <main class="page contact-us-page">
+        <section class="clean-block clean-form dark"  style=" min-height: 78vh;">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Registro Administrador</h2>
+                    <p></p>
+                </div>
+                <form (submit) = "agregarAdmin($event)">
+                    <div class="form-group"><label>Nombre:</label>
+                        <input [(ngModel)]= "cliente.NOMBRE" name="NOMBRE" class="form-control"
+                        type="text" required></div>
+                    <div class="form-group"><label>Email:</label>
+                        <input [(ngModel)]="cliente.CORREO" name="CORREO" class="form-control"
+                        type="email" required></div>
+                    <div *ngIf="!agregado" class="alert alert-danger" role="alert">
+                            Este usuario ya ha sido registrado. 
+                    </div>
+                    <div class="form-group"><label>Contraseña:</label>
+                        <input [(ngModel)]="cliente.PASSWORD" name="PASSWORD" class="form-control"
+                        type="password" required></div>
+                    <div class="form-group"><label>Repita su contraseña:</label>
+                        <input [(ngModel)]="repitedPassword" name="repitedPassword" class="form-control" type="password" required>
+                    </div>
+                    <div *ngIf="!samePassword" class="alert alert-danger" role="alert">
+                        Las contraseñas no son iguales.
+                    </div>
+                    <div class="form-group"><button class="btn RedButton" type="submit">Agregar</button></div>
+                    <div *ngIf="!agregado" class="alert alert-danger" role="alert">
+                        Debe ingresar datos válidos.
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+    <script src="../../../assets/js/script.min.js"></script>
+</body>
+
+</html>

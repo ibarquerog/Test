@@ -1,0 +1,51 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anotaciones</title>
+</head>
+
+<body>
+  <main class="page shopping-cart-page">
+    <section class="clean-block clean-cart dark" style=" min-height: 78vh;">
+      <div class="container" style="margin-top:8px;">
+            <h2 class="text-info">Anotaciones</h2>
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+              <thead>
+                  <tr>
+                      <th>Usuario</th>
+                      <th>Problema</th>
+                      <th>Anotación</th>
+                      <th>Leer</th>
+                  </tr>
+              </thead>
+              <tbody *ngIf="anotaciones?.length != 0">
+                  <tr *ngFor= "let a of anotaciones">  
+                      <td>{{a.NOMBRE}}</td>
+                      <td>{{a.NOMBREPROBLEMA}}</td>
+                      <td>{{a.ANOTACION}}</td>
+                      <td>
+                        <button type="button" class="btn btn-outline-danger btn-sm" (click)="openModalDialog(a)">Leído</button>
+                          <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+                              <div class="popup" [ngStyle]="{'display':display}">
+                                  <p>¿Está seguro de que desea marcar como leído la anotación?</p>
+                                  <button type="button" class="btn_si" (click)="marcarLeida(a)">Si</button>
+                                  <button type="button" class="btn_no" (click)="closeModalDialog()">No</button>
+                              </div>
+                          </div>
+                      </td>
+                  </tr>
+              </tbody>
+              <tbody *ngIf="anotaciones?.length == 0">
+                  <tr>
+                      <td>No hay anotaciones</td>
+                  </tr>
+              </tbody>
+            </table>
+      </div>
+    </section>
+  </main>
+</body>
+
+
+
+

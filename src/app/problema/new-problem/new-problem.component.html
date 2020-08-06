@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <main class="page contact-us-page">
+        <section class="clean-block clean-form dark" style=" min-height: 78vh;">
+            <div class="container">
+                 <div class="block-heading">
+                    <h2 class="text-info">Nuevo problema</h2>
+                    <p></p>
+                </div>
+                <form [formGroup]="form" (ngSubmit) = "form.valid && add($event)">
+                    <label>Nombre del problema</label>
+                        <input class="form-control rounded" type="text" name="nombre" 
+                        formControlName="nombre" [ngClass]="{'is-invalid':
+                        form.get('nombre').touched && form.get('nombre').invalid}">
+                        <div *ngIf="form.get('nombre').touched && form.get('nombre').invalid" class = "invalid-feedback">
+                            <div>Nombre del problema es un campo requerido</div>
+                        </div>
+
+                    <label>Categoría</label>
+                    <select class="form-control rounded" name="ID_REGION" formControlName="categoria" [ngClass]="{'is-invalid':
+                    form.get('categoria').touched && form.get('categoria').invalid}">
+                            <option *ngFor="let option of tipos" [value]="option.ID_TIPO_PROBLEMA">{{option.TIPO_PROBLEMA}}
+                            </option>     
+                    </select>
+                    <div *ngIf="form.get('categoria').touched && form.get('categoria').invalid" class = "invalid-feedback">
+                        <div>Categoría es un campo requerido</div>
+                    </div>
+
+                    <label>Enunciado del problema</label>
+                    <p><textarea class="form-control rounded" name="problema" required type="text"
+                        formControlName="problema" [ngClass]="{'is-invalid':
+                        form.get('problema').touched && form.get('problema').invalid}"></textarea>
+                    </p>
+                    <div *ngIf="form.get('problema').touched && form.get('problema').invalid" class = "invalid-feedback">
+                            <div>El enunciado del problema es un campo requerido</div>
+                        </div>
+                    <button type="button" class="btn BlueButton" (click) ="visualizarProblema()">Visualizar problema</button>
+                    <p *ngIf="verProblema">
+                        <ng-katex-paragraph [paragraph]="problemaLatex"></ng-katex-paragraph>
+                    </p>
+                
+                    <div>
+                    <label>Fecha de liberación del problema</label>
+                    </div>
+                    <input (change)="setMinDate()" class="form-control rounded" type="date" formControlName="liberacion_problema" 
+                        [ngClass]="{'is-invalid': form.get('liberacion_problema').touched && form.get('liberacion_problema').invalid}">
+                    
+                    <div *ngIf="form.get('liberacion_problema').touched && form.get('liberacion_problema').invalid" class = "invalid-feedback">
+                        <div>Fecha de liberación del problema es un campo requerido</div>
+                    </div>
+                    
+                    
+                    <label>Solución del problema</label>
+                    <p><textarea class="form-control rounded" name="solucion" 
+                        required type="text" formControlName="solucion" [ngClass]="{'is-invalid':
+                        form.get('solucion').touched && form.get('solucion').invalid}">
+                        </textarea>
+                    </p>    
+                        <div *ngIf="form.get('solucion').touched && form.get('solucion').invalid" class = "invalid-feedback">
+                                <div>El enunciado de la solución es un campo requerido</div>
+                        </div>
+                      <button type="button" class="btn BlueButton" (click) ="visualizarSolucion()">Visualizar solución</button>       
+                        <p *ngIf="verSolucion">
+                          <ng-katex-paragraph [paragraph]="solucionLatex"></ng-katex-paragraph>
+
+                        </p>
+                            <div>
+                    <label>Fecha de liberación de la solución</label>
+                            </div>
+                        <input min="{{minDate}}"class="form-control rounded" formControlName="liberacion_solucion" [ngClass]="{'is-invalid':
+                        form.get('liberacion_solucion').touched && form.get('liberacion_solucion').invalid}" type="date">
+                    <div *ngIf="form.get('liberacion_solucion').touched && form.get('liberacion_solucion').invalid" class = "invalid-feedback">
+                            <div *ngIf="form.get('liberacion_solucion').errors.required">Fecha de liberación es un campo requerido</div>
+                    </div>
+                    <button [disabled]="!form.valid" class="btn RedButton" type="submit">
+                        Agregar nuevo
+                    </button>
+                    <div *ngIf="!agregado" class="alert alert-danger" role="alert">
+                        Error al agregar problema.
+                    </div>
+                    <div *ngIf="exito" class="alert alert-success" role="alert">
+                        Problema ingresado exitosamente.
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+    <script src="../../../assets/js/script.min.js"></script>
+</body>
+
+</html>

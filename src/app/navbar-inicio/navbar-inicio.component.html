@@ -1,0 +1,25 @@
+<nav class="navbar navbar-light light-blue lighten-4">
+    <a class="navbar-brand logo" style="margin-left: 10px;"><img src="../../assets/img/logoTECBLANCO.png" alt="TEC" style="height: 40px;"></a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" role="presentation"><a (click)="login()" class="nav-link active"><i class="fas fa-user-shield"></i> Iniciar sesión</a></li>
+        </ul>
+        <ul class="navbar-nav mr-auto">
+        </ul>
+    <div *ngIf="navbar">
+        <a class="navbar-brand logo" style="float: right;"><img src="../../assets/img/logo-ande.png" alt="ANDE" style="height: 70px;"></a>
+      </div>
+</nav>
+<section style="margin-bottom:0px; min-height: 78vh;" [ngStyle]="{'display':display}">
+    <form class="box" name="formInicio" (submit)="loginUser($event)">
+        <h2 class="text-info" style="padding-top: 15%;">Iniciar sesión</h2>
+        <input type="text" [(ngModel)] ="username" name="" placeholder="Correo electrónico" required>
+        <input type="password" [(ngModel)]="pass" name="" placeholder="Contraseña" required>
+        <input type="submit" name="" value="Login">
+        <div *ngIf="invalid" class="alert alert-danger" role="alert">
+            Correo o contraseña incorrectos.
+        </div>
+        <label><a href="/registro" style="background-color:transparent;">Crear nueva cuenta</a></label>
+        
+    </form>
+</section>
+

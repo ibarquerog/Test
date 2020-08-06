@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+  <main class="page blog-post-list">
+    <section class="clean-block clean-blog-list dark" style=" min-height: 78vh;">
+        
+        <div class="container">
+         
+           <div class="block-heading">
+                <h2 class="text-info">{{problema?.NOMBRE}}</h2>
+            </div>
+            <div class="block-content">
+                <div class="clean-blog-post">
+                            <h3>Enunciado del problema:</h3>
+                            <div class="col-lg-7">
+                                <ng-katex-paragraph [paragraph]="problema.LATEX_SOURCE_PROBLEMA"></ng-katex-paragraph>
+                            </div>
+                            
+
+                            <h3>Solución del problema</h3>
+                            <div class="col-lg-7">
+                                <ng-katex-paragraph [paragraph]="problema.LATEX_SOURCE_SOLUCION "></ng-katex-paragraph>
+                            </div>
+                                                
+                        </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Opciones de edición&nbsp;</h5>
+                        <div *ngIf = "isLoaded">
+                            <app-editar-problema
+                              [problema] = "problema">
+                            </app-editar-problema>
+                        </div>    
+                           
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  </main>
+</body>
+
+</html>

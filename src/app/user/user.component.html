@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <section class="clean-block clean-form dark" style=" min-height: 78vh;">
+        <h2 class="text-info" style="margin-left: 8%;">Problema del día</h2>
+            <div class="column" style="width: 40%; margin-left: 8%; bottom: 3%;">  
+                <img *ngIf="obra" src="{{obra.IMG_SOURCE}}" style="max-width: 500px; max-height: 500px;width: auto; height: auto; margin-top: 5%; display: block;">
+                <p style="padding-top:2px;"><b>Nombre:</b> {{obra.NOMBRE_DE_OBRA}}<br><b>Artista:</b> {{obra.NOMBRE_ARTISTA}}<br><b>Año:</b> {{obra.YEAR}}</p>
+            </div>
+            <div class="column" style="margin-top: 7%; width: 50%;">
+                <div class="clean-blog-post">
+                    <h3>Enunciado del problema</h3>
+                    <div>
+                        <ng-katex-paragraph [paragraph]="problemaLatex"></ng-katex-paragraph>
+                    </div>
+                </div>
+                <div class="clean-blog-post">
+                    <h3>Solución del problema</h3>
+                        <div>
+                            <ng-katex-paragraph [paragraph]="solucionLatex"></ng-katex-paragraph>
+                        </div>
+                </div>
+            </div>
+    </section>
+</body>
+</html>

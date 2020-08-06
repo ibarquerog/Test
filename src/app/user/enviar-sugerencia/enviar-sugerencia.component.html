@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <main class="page contact-us-page">
+        <section class="clean-block clean-form dark" style=" min-height: 78vh;">
+            <div class="container">
+                 <div class="block-heading">
+                    <h2 class="text-info">Sugerir problema</h2>
+                    <p></p>
+                </div>
+                <form (submit) = "enviarSugerencia($event)">
+                    <label>Enunciado del problema</label>
+                    <p><textarea class="form-control rounded" name="problema" required type="text"
+                         [(ngModel)]="sugerencia.PROBLEMA_SUGERIDO"></textarea>
+                    </p>
+                    <div class="form-group">
+                      <button class="btn RedButton" type="submit">Enviar</button>
+                  </div>
+
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <app-navbar-inicio *ngIf="inicio"></app-navbar-inicio>
+    <app-navbar-admin *ngIf="adminLogged"></app-navbar-admin>
+    <app-navbar-user *ngIf="userLogged"></app-navbar-user>
+    <router-outlet></router-outlet>
+    <footer class="page-footer dark" style="height:120px;margin:0px;margin-bottom:4px;">
+        <div class="footer-copyright">
+            <p>© 2020 TEC</p>
+        </div>
+    </footer>
+</body>
+
+
+</html>

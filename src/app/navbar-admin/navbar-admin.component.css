@@ -1,0 +1,23 @@
+.usuario_actual  {
+    display: flex;
+    width: 16%;
+}
+.redButton {
+    background-color: #c1272d; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+
+
+  .navbar-light .navbar-nav .nav-link {
+    color:white;
+  }
+  .navbar-light:hover .navbar-nav:hover .nav-link:hover {
+    color:#c1272d;
+  }

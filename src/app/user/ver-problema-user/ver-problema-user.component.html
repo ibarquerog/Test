@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayAnotacion}"> 
+        <div class="popupAnotacion" [ngStyle]="{'display': displayAnotacion}">
+            <textarea class="form-control rounded" name="problema" required type="text" [(ngModel)]="anotacion.ANOTACION" ></textarea>
+            <button type="button" class="btn_si" (click) ="guardarAnotacion(problema.ID_PROBLEMA)" (click)="closeModalDialogAnotacion()">Enviar</button>
+            <button type="button" class="btn_no" (click)="closeModalDialogAnotacion()">Cancelar</button>
+        </div> 
+    </div>
+    <section class="clean-block clean-form dark" style=" min-height: 78vh;">
+            <div class="column" style="width: 40%; margin-left: 8%;margin-top: 5%; bottom: 3%;">  
+                <button (click)="openModalDialogAnotacion()" type="submit" class='btn btn-outline-primary btn-sm'>Recomendación</button>
+                <img *ngIf="obra" src="{{obra.IMG_SOURCE}}" style="max-width: 500px; max-height: 500px;width: auto; height: auto; margin-top: 5%; display: block;">
+                <p *ngIf="obra" style="padding-top:2px;"><b>Nombre:</b> {{obra.NOMBRE_DE_OBRA}}<br><b>Artista:</b> {{obra.NOMBRE_ARTISTA}}<br><b>Año:</b> {{obra.YEAR}}</p>
+            </div>
+            <div class="column" style="margin-top: 7%; width: 50%;">
+                <div class="clean-blog-post">
+                    <h3>Enunciado del problema</h3>
+                    <div>
+                        <ng-katex-paragraph [paragraph]="problemLatexVer"></ng-katex-paragraph>
+                    </div>
+                </div>
+                <div class="clean-blog-post">
+                    <h3>Solución del problema</h3>
+                        <div>
+                            <ng-katex-paragraph [paragraph]="solutionLatexVer"></ng-katex-paragraph>
+                        </div>
+                </div> 
+            </div>
+            <textarea class="form-control rounded" name="problema" placeholder="Dejar un comentario..." required type="text" [(ngModel)]="comentario.COMENTARIO" style="margin-left: 8%; width: 70%;" ></textarea>
+            <button (click)="enviarComentario()" type="submit" class='btn btn-outline-primary btn-sm'>Enviar</button>
+            <table class='table' *ngIf="comentarios"  style="margin-left: 8%; width: 70%;">
+                <thead>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let comentario of comentarios">
+                    <td><p><b>{{comentario.CLIENTE}}</b><br>{{ comentario.COMENTARIO }}</p></td>
+                  </tr>
+                </tbody>
+              </table>
+    </section>
+</body>
+</html>

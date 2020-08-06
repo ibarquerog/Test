@@ -1,0 +1,158 @@
+.container {
+    padding-top:5px;
+  }
+  
+  @media (min-width:1200px) {
+    .container {
+      max-width:1140px;
+    }
+  }
+  
+  @media (min-width:992px) {
+    .container {
+      max-width:960px;
+    }
+  }
+  
+  @media (min-width:768px) {
+    .container {
+      max-width:720px;
+    }
+  }
+  
+  @media (min-width:576px) {
+    .container {
+      max-width:540px;
+    }
+  }
+  
+  .container {
+    width:100%;
+    padding-right:15px;
+    padding-left:15px;
+    margin-right:auto;
+    margin-left:auto;
+  }
+  
+  body {
+    margin:0;
+    font-family:Montserrat,sans-serif;
+    font-size:1rem;
+    font-weight:400;
+    line-height:1.5;
+    color:#212529;
+    text-align:left;
+    background-color:#fff;
+  }
+  
+  .clean-block .block-heading h1, .clean-block .block-heading h2, .clean-block .block-heading h3 {
+    margin-bottom:1.2rem;
+  }
+  
+  .text-info {
+    margin-top: 100px;
+    color:black!important;
+  }
+  
+  .h2, h2 {
+    font-size:2rem;
+  }
+  
+  .box{
+    width: 500px;
+    height: 600px;
+    padding: 40px;
+    border-top: 20px;
+    position: absolute;
+    top: 50%;
+    filter: drop-shadow(0 0 8px #2c3e50);/*Sombra*/
+    background: url("../../assets/img/calendarBackground.png");
+    background-size: 100% 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .box h1{
+    color: black;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .box p{
+    color: black;
+    font-weight: 200;
+  }
+
+  .box input[type = "text"], .box input[type = "password"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 18px auto;
+    text-align: center;
+    border: 2px solid #e74c3c;
+    padding: 14px 10px;
+    width: 250px;
+    outline: none;
+    color: #2c3e50;
+    border-radius: 24px;
+    transition: 0.25s;
+  }
+
+  .box input[type = "text"]:focus,.box input[type = "password"]:focus{
+    width: 280px;
+    border-color: #c1272d;
+  }
+
+  .box input[type = "submit"]{
+    border:0;
+    background: none;
+    display: block;
+    margin: 18px auto;
+    text-align: center;
+    border: 2px solid #273c75;
+    padding: 14px 40px;
+    outline: none;
+    color: #2c3e50;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+  .box input[type = "submit"]:hover{
+    background: #30336b;
+    color: white;
+  }
+
+  .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom:.5rem;
+    font-family:inherit;
+    font-weight:500;
+    line-height:1.2;
+    color:inherit;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin-top:0;
+    margin-bottom:.5rem;
+  }
+  
+  .clean-block .block-heading {
+    padding-top:50px;
+    margin-bottom:40px;
+    text-align:center;
+  }
+  
+  .redButton {
+    background-color: #c1272d; /* Green */
+    border: none;
+    color: white;
+    display: block;
+    margin: 0 auto;
+    padding: 10px 27px;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+  }
+    
